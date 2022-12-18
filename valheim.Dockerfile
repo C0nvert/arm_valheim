@@ -36,7 +36,7 @@ ENV DEBUGGER "/usr/local/bin/box86"
 RUN ./steamcmd.sh +@sSteamCmdForcePlatformType linux +login anonymous +force_install_dir /root/valheim_server +app_update 896660 validate +quit
 
 # Patch Valheim Server
-WORKDIR 
+RUN rm /root/valheim_server/valheim_server_Data/Managed/assembly_valheim.dll
 ADD 'URL' /root/valheim_server/valheim_server_Data/Managed
 
 ## Box64 installation
