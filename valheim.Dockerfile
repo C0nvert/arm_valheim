@@ -37,7 +37,7 @@ RUN ./steamcmd.sh +@sSteamCmdForcePlatformType linux +login anonymous +force_ins
 
 # Patch Valheim Server
 RUN rm /root/valheim_server/valheim_server_Data/Managed/assembly_valheim.dll
-ADD 'URL' /root/valheim_server/valheim_server_Data/Managed
+ADD "https://github.com/C0nvert/arm_valheim/raw/main/assembly_valheim.dll" /root/valheim_server/valheim_server_Data/Managed
 
 ## Box64 installation
 WORKDIR /root
