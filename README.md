@@ -3,14 +3,6 @@ Experimental Docker file to run a Valheim server on ARM
 
 The valheim.Dockerfile is based on the stardart repositories of box86 and box64.
 
-## Changelog
-2022.10.02: updated with new version of Valheim (0.211.7) with the crossplay parameter.  
-2022.10.05: tested with the new version 0.211.8 (no other changes)  
-2022.10.13: tested with the new version 0.211.9 (no other changes)  
-2022.11.19: tested with the new version 0.211.11 (no other changes)  
-2022.11.24: added optimizer dockerfiel for ODROID N2/N2+ (thanks rstrube)  
-2022.11.30: now the docker file only downloads the last "stable" releases of box86 and box64 instead the dev code from the main repository  
-2022.12.18: added SteamWorks Patch routine to Dockerfile
 
 ## Compiled image:
 You can find in the docker hub the image to run directly: https://hub.docker.com/repository/docker/tranko/pi4valheim
