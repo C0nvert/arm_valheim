@@ -35,6 +35,10 @@ RUN curl -sqL "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.t
 ENV DEBUGGER "/usr/local/bin/box86"
 RUN ./steamcmd.sh +@sSteamCmdForcePlatformType linux +login anonymous +force_install_dir /root/valheim_server +app_update 896660 validate +quit
 
+# Patch Valheim Server
+WORKDIR 
+ADD 'URL' /root/valheim_server/valheim_server_Data/Managed
+
 ## Box64 installation
 WORKDIR /root
 RUN git clone https://github.com/ptitSeb/box64.git --single-branch --branch $(git ls-remote --tags --refs https://github.com/ptitSeb/box64.git | tail -n1 | cut -d/ -f3)
