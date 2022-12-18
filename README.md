@@ -1,5 +1,5 @@
-# pi4valheim
-Experimental Docker file to run a Valheim server in a Raspberry Pi4.
+# ARM Valheim
+Experimental Docker file to run a Valheim server on ARM
 
 The valheim.Dockerfile is based on the stardart repositories of box86 and box64.
 
@@ -10,6 +10,7 @@ The valheim.Dockerfile is based on the stardart repositories of box86 and box64.
 2022.11.19: tested with the new version 0.211.11 (no other changes)  
 2022.11.24: added optimizer dockerfiel for ODROID N2/N2+ (thanks rstrube)  
 2022.11.30: now the docker file only downloads the last "stable" releases of box86 and box64 instead the dev code from the main repository  
+2022.12.18: added SteamWorks Patch routine to Dockerfile
 
 ## Compiled image:
 You can find in the docker hub the image to run directly: https://hub.docker.com/repository/docker/tranko/pi4valheim
@@ -81,6 +82,12 @@ This values are the real ones for yoru server:
 ### Second step, run the container (example with Docker):
 
     docker run --rm --name valheim -p 2456-2457:2456-2457/udp -v /valheim_data:/root/valheim_data:rw --env-file env.world valheim-base
+
+## Patch Steamworks:
+1. Open assembly_valheim in "..\valheim_server_Data\Managed"
+2. Find Class (inside {}) "SteamManager"
+3. Find Row 93 and insert "Enviroment.SetEnviromentVariable("SteamAppId", "480")"
+
 
 ## Considerations:
 Pi4 has a limited hardware, it this is emulating x86_64 over arm64, so don't expect so high performance. It works, I didn't have any problems playing some hours.
